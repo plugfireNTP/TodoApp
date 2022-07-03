@@ -1,0 +1,51 @@
+<h4>Todo list</h4>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action"
+  [ngClass]="{'active': todolist.id == todoFormGroup.get('id')?.value} "
+  *ngFor="let todolist of todolists"
+  (click)="onSelectTodolist(todolist)">
+    <span class="badge">{{todolist.id }} </span>
+    <span>{{todolist.user }} </span>
+    <span>{{todolist.title }} </span>
+  </li>
+</ul>
+<hr>
+<form [formGroup]="todoFormGroup">
+  id<input type="text" formControlName="id"><br>
+  user<input type="text" formControlName="user"><br>
+  title<input type="text" formControlName="title"><br>
+</form>
+
+<hr>
+todoFormGroup value คือ<br>
+{{ todoFormGroup.value | json}}
+<br>
+user คือ
+
+
+<br>
+<hr>
+<form [formGroup]="todoFormGroup">
+  <h4>{{ todoFormGroup.get('user')?.value }}</h4>
+  <label class="form-label" for="user"> name</label>
+
+  user<input class="form-control" type="text" id="user" formControlName="user"><br>
+  email<input type="text" formControlName="email"><br>
+</form>
+<form [formGroup]="todoFormGroup">
+  {{ todoFormGroup.get('title')?.value }}<br>
+  title<input type="text" formControlName="title"><br>
+</form>
+<br><br>
+
+todolist คือ
+
+<!-- {{ todolist | json}}<br><br> -->
+
+<!-- todoFormControl.value คือ
+{{ todoFormControl.value  }} <br><br>
+<input type="text" [formControl]="todoFormControl">
+<span *ngIf="todoFormControl.errors"
+style="color: red"> name is required</span><br>
+{{ todoFormControl.errors | json }}<br> -->
